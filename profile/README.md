@@ -127,6 +127,12 @@ Repositorio principal de la organización enfocado en el diseño, arquitectura R
 La consola KUBIX estará compuesta por los elementos electrónicos y estructurales necesarios para su funcionamiento. En su interior contará con las entradas y conexiones previamente definidas, una fuente de alimentación encargada de suministrar energía al sistema y las pantallas que conformarán la interfaz visual de la consola. La estructura exterior estará fabricada mediante una combinación de piezas de acrílico y componentes elaborados mediante impresión 3D en filamento, buscando proporcionar resistencia, estabilidad y una apariencia adecuada al diseño. Finalmente, las diferentes partes de la estructura serán ensambladas y aseguradas mediante pines y tornillos, permitiendo mantener un montaje firme y, al mismo tiempo, facilitar el acceso a los componentes internos cuando sea necesario.
 
 
+
+## Especificaciones del Proyecto
+![Visual fisica por secciones de KUBIX](BocetoKUBIX/Armado%20de%20consola.pdf)
+
+- 
+
 ## Especificaciones del Proyecto
 
 El proyecto consiste en el desarrollo de una consola de juegos retro construida de forma colaborativa sobre una arquitectura SoC en FPGA. El sistema utiliza un procesador RISC-V de 32 bits (RV32I / femtorv32) ejecutado como caja negra, el cual corre la lógica principal del juego programada en C y controla cada uno de los periféricos en hardware mediante un bus de direcciones y registros mapeados en memoria. Para la salida visual, la consola implementa una arquitectura distribuida de 4 pantallas independientes, donde cada una dispone de su propia FPGA dedicada para el procesamiento y renderizado gráfico.
@@ -142,20 +148,20 @@ A continuación se presentan los submódulos de la organización junto con su di
 
 | Repositorio / Módulo | Rango de Memoria | Descripción |
 | :--- | :--- | :--- |
-| `software_juegos` | `0x000000 - 0x3FFFFF` | BRAM para arranque, firmware y código fuente de los juegos. |
-| `UART` | `0x400000 - 0x40FFFF` | Protocolo de comunicación UART base para depuración. |
-| `spi_flash_ctrl` | `0x420000 - 0x42FFFF` | Controlador para la memoria SPI Flash de almacenamiento. |
+| [`software_juegos`](https://github.com/noNintendo2026/software_juegos.git) | `0x000000 - 0x3FFFFF` | BRAM para arranque, firmware y código fuente de los juegos. |
+| [`UART`](https://github.com/noNintendo2026/UART.git) | `0x400000 - 0x40FFFF` | Protocolo de comunicación UART base para depuración. |
+| [`spi_flash_ctrl`](https://github.com/noNintendo2026/spi_flash_ctrl.git) | `0x420000 - 0x42FFFF` | Controlador para la memoria SPI Flash de almacenamiento. |
 | [`ps2_keyboard.v`](https://github.com/noNintendo2026/PS2_keyboard.git) | `0x430000 - 0x43FFFF` | Driver y control para teclado PS2. |
-| `ps2_mouse` | `0x440000 - 0x44FFFF` | Driver para [Raton PS2](https://github.com/noNintendo2026/ps2_mouse) |
-| `nes_controller.v` | `0x450000 - 0x45FFFF` | Driver para controles de NES. |
-| `I2C_Master` | `0x460000 - 0x46FFFF` | Módulo I2C Master para almacenamiento de puntajes y periféricos. |
-| `I2S_tx.v` | `0x470000 - 0x47FFFF` | Transmisor de audio digital I2S. |
-| `Display-Driver` | `0x480000 - 0x4FFFFF` | Driver para la gestión de pantalla, framebuffer y gráficos. |
-| `spiram_ctrl.v` | Por determinar | Controlador para la gestión de memoria RAM necesaria para la ejecución de procesos |
-| `MAX7219-` | Auxiliar | Controlador para la matriz de LEDs. |
-| `MultijugadorRed` | Auxiliar | Módulo de comunicación por Serial I/O para partidas multijugador. |
-| `.github` | N/A | Proyecto general del cubo de juegos con soporte de mandos. |
-| `defaultTemplate` | N/A | Plantilla base para desarrollar módulos individuales. |
+| [`ps2_mouse`](https://github.com/noNintendo2026/ps2_mouse.git) | `0x440000 - 0x44FFFF` | Driver para Raton PS2 |
+| [`nes_controller.v`](https://github.com/noNintendo2026/nes_controller.v.git) | `0x450000 - 0x45FFFF` | Driver para controles de NES. |
+| [`I2C_Master`](https://github.com/noNintendo2026/I2C_Master.git) | `0x460000 - 0x46FFFF` | Módulo I2C Master para almacenamiento de puntajes y periféricos. |
+| [`I2S_tx.v`](https://github.com/noNintendo2026/I2S_tx.v.git)| `0x470000 - 0x47FFFF` | Transmisor de audio digital I2S. |
+| [`Display-Driver`](https://github.com/noNintendo2026/Display-Driver.git)| `0x480000 - 0x4FFFFF` | Driver para la gestión de pantalla, framebuffer y gráficos. |
+| [`spiram_ctrl.v`](https://github.com/noNintendo2026/spiram_ctrl.v.git) | Por determinar | Controlador para la gestión de memoria RAM necesaria para la ejecución de procesos |
+| [`MAX7219-`](https://github.com/noNintendo2026/MAX7219-.git) | Auxiliar | Controlador para la matriz de LEDs. |
+| [`MultijugadorRed`](https://github.com/noNintendo2026/MultijugadorRed.git) | Auxiliar | Módulo de comunicación por Serial I/O para partidas multijugador. |
+| [`.github`](https://github.com/noNintendo2026/.github.git) | N/A | Proyecto general del cubo de juegos con soporte de mandos. |
+| [`defaultTemplate`](https://github.com/noNintendo2026/defaultTemplate.git) | N/A | Plantilla base para desarrollar módulos individuales. |
 
 
 
